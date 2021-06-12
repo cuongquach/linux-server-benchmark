@@ -180,7 +180,7 @@ system_info() {
     disk_size2=($( LANG=C df -hPl | grep -wvE '\-|none|tmpfs|devtmpfs|by-uuid|chroot|Filesystem' | awk '{print $3}' ))
     disk_total_size=$( calc_disk ${disk_size1[@]} )
     disk_used_size=$( calc_disk ${disk_size2[@]} )
-    virtua=$(virt-what)
+    virtua=$(virt-what | head -n 1)
     [[ ${virtua} ]] && virt="$virtua" || virt="No Virtual found"
 
     echo "CPU model            : $cname"
