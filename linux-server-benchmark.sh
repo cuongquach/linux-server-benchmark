@@ -201,8 +201,16 @@ system_info() {
 }
 
 install_dep_tools() {
+    opsy=$( get_opsy )
     if  [ ! -e '/usr/bin/wget' ] || [ ! -e '/usr/bin/fio' ] || [ ! -e '/usr/bin/ioping' ] || [ ! -e '/usr/bin/sysbench' ] ||  [ ! -e '/usr/sbin/virt-what' ];then
         echo -e "Installing the required software. Please wait..."
+
+        # Amazon Linux 2
+        if [[ "${opsy}" == "Amazon Linux 2" ]];then
+            yum clean all > /dev/null 2>&1
+            amazon-linux-extras install epel -y > /dev/null 2>&1
+            yum install -y wget fio ioping sysbench virt-what
+        fi
         yum clean all > /dev/null 2>&1 && yum install -y epel-release > /dev/null 2>&1 && yum install -y wget fio ioping sysbench virt-what > /dev/null 2>&1 || ( apt-get update > /dev/null 2>&1 && apt-get install -y wget fio ioping sysbench virt-what > /dev/null 2>&1 )
     fi
 }
@@ -216,7 +224,6 @@ main() {
     
     # Check dependencies tools
     echo "Please wait..."
-    echo "Checking and installing neccessary softwares for benchmark..."
     install_dep_tools
 
     # Clear console
