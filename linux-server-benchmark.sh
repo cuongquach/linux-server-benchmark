@@ -231,7 +231,7 @@ main() {
     echo "Disk Speed"
     break_line
     ## dd test
-    echo "> *dd* Test"
+    echo "> **dd** Test"
     dd_test
     echo ""
     echo "> **fio** Test"
