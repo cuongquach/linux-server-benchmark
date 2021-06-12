@@ -11,7 +11,7 @@ This script will help you to benchmark your Linux Server. From that you can unde
 ## Usage
 
 ```
-# curl -Lso- https://raw.githubusercontent.com/cuongquach/linux-server-benchmark/master/linux-server-benchmark.sh | bash
+# curl -Lso- https://raw.githubusercontent.com/cuongquach/linux-server-benchmark/main/linux-server-benchmark.sh | bash
 ```
 
 ## Example Output
