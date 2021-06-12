@@ -7,6 +7,7 @@ This script will help you to benchmark your Linux Server. From that you can unde
 - CentOS
 - Ubuntu
 - Debian
+- Amazon Linux 2
 
 ## Usage
 
